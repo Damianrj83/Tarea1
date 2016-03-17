@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.Controlador_Mantenimiento_Estudiante;
+import Modelo.Estudiante;
+import Modelo.Registro;
 
 /**
  *
@@ -13,14 +15,26 @@ import Controlador.Controlador_Mantenimiento_Estudiante;
  */
 public class GUI_Botones extends javax.swing.JPanel {
 
-     ManipulaEstudiante manipulaEstudiante;
-     ArrayList arrayList = new ArrayList();
+    // ManipulaEstudiantes manipulaEstudiante;
+    Controlador_Mantenimiento_Estudiante controlador_Mantenimiento_Estudiante;
+     Estudiante estudiante;
+    Registro registro = new Registro(); //no se necesita
     /**
      * Creates new form GUI_Botones
+     * @param estudiante
      */
-    public GUI_Botones() {
+    public GUI_Botones(Estudiante estudiante) {
+     controlador_Mantenimiento_Estudiante = new Controlador_Mantenimiento_Estudiante(estudiante, this, registro);
+    
+    btn_buscar.addActionListener(controlador_Mantenimiento_Estudiante);
+    btn_agregar.addActionListener(controlador_Mantenimiento_Estudiante);
+    btn_eliminar.addActionListener(controlador_Mantenimiento_Estudiante);
+    btn_modificar.addActionListener(controlador_Mantenimiento_Estudiante);
+ 
         initComponents();
-    }
+    }//Fin constructor
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,14 +98,16 @@ public class GUI_Botones extends javax.swing.JPanel {
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_agregarActionPerformed
-    manipulaEstudiantes = new ManipulaEstudiantes(estudiante,this,arrayList);
-    public void agregar_eventos(Controlador_Mantenimiento_Estudiante me)
+   
+   /* public void agregar_eventos(Controlador_Mantenimiento_Estudiante me)
     {
         this.btn_buscar.addActionListener(me);
         this.btn_eliminar.addActionListener(me);
         this.btn_agregar.addActionListener(me);
         this.btn_modificar.addActionListener(me);
-    }//
+    }// */
+    
+    
     
     
     

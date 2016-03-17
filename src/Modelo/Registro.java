@@ -4,18 +4,20 @@
  * and open the template in the editor.
  */
 package Modelo;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author User
  */
-public class ArrayList{
+public class Registro{
     
     private ArrayList<Estudiante> arrayList;
             
 
-public ArrayList(){
+public Registro(){
     
 arrayList = new ArrayList<Estudiante>(); 
 
@@ -37,7 +39,7 @@ for(int index=0;index<arrayList.size();index++){
   break;
 }//Fin del for
  if(existe==false){
-  JOptionPane.showMessageDialog(null,"Este numero de cedula no pertenece a nigun registro.\nIngrese de nuevo el numero de cedula por favor.");
+  JOptionPane.showMessageDialog(null,"Este numero de carnet no pertenece a nigun registro.\nIngrese de nuevo el numero de cedula por favor.");
  }//Fin del if
 return existe;
 }//Fin del meetodo verificarID
@@ -46,11 +48,24 @@ return existe;
 public Estudiante buscarEstudiante(String carnet){
     
   Estudiante estudiante= null;
-  for(int i=0;i<arrayList.size();i++){
-  if(arrayList.get(i).getCedula().equals(carnet)){
-  estudiante= arrayList.get(i);
+  for(int index=0;index<arrayList.size();index++){
+  if(arrayList.get(index).getCarnet().equals(carnet)){
+  estudiante= arrayList.get(index);
      }//Fin del if
   }//Fin del for
 return estudiante;
 }//Fin del metodo BuscarCliente
+
+public Estudiante eliminarEstudiante(String carnet){
+  Estudiante estudiante= null;
+  for(int index = 0;index<arrayList.size(); index++){
+  if(arrayList.get(index).getCarnet().equals(carnet)){
+   arrayList.remove(index);
+   }//Fin del if
+  }//Fin del for
+  return estudiante;
+}//Fin del metodo
+
     }//Fin clase
+
+
